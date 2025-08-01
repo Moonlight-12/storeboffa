@@ -1,27 +1,29 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 import ProductList from "../products";
-import { supabase } from "@/supabase-client";
+// import { supabase } from "@/supabase-client";
+import Title from "../title";
 
 export default function HomePage() {
 
-  const [newProduct, setNewProduct] = useState({title: "", description: ""});
-  const handleSubmit = async(e: any) => {
-    e.preventDefault();
+  // const [newProduct, setNewProduct] = useState({title: "", description: ""});
 
-    const {error} = await supabase.from("testProduct").insert(newProduct).single();
+  // const handleSubmit = async(e: any) => {
+  //   e.preventDefault();
 
-    if(error) {
-      console.error("Error inserting product:", error);
-    }
+  //   const {error} = await supabase.from("testProduct").insert(newProduct).single();
+
+  //   if(error) {
+  //     console.error("Error inserting product:", error);
+  //   }
     
-    setNewProduct({title: "", description: ""}); // Reset the form after submission
-  }
+  //   setNewProduct({title: "", description: ""});
+  // }
 
   return (
     <main>
-      <div>navbar</div>
+      {/* <div>navbar</div>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 justify-center items-center">
         <input
         type="text"
@@ -33,8 +35,9 @@ export default function HomePage() {
         placeholder="product description"
         onChange={(e) => setNewProduct((prev) => ({...prev, description:e.target.value}))}/>
         <button onClick={() => console.log(newProduct)}>Add Product</button>
-      </form>
-      <div>
+      </form> */}
+      <div className="p-6">
+        <Title title="Products" />
         <ProductList />
       </div>
     </main>
